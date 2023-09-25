@@ -1,0 +1,6 @@
+.storybook-modal {
+    background-color: white;
+    box-shadow: darkgray;
+    width: 500px;
+    height: 500px;
+}
