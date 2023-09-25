@@ -2,7 +2,7 @@ name: Test, Lint, Build and Deploy on Github Pages
 
 on:
   push:
-    branches: [ "master", "main" ]
+    branches: [ "master", "main", "homework2" ]
 
 permissions:
   contents: write
@@ -32,15 +32,15 @@ jobs:
         run: npm run lint && npm test
 
       # Собираем приложение
-      - name: Build Application
-        run: npm run build
+#      - name: Build Application
+#        run: npm run build
 
       # Публикуем приложение на Github Pages
-      - name: Deploy to Github Pages
-        uses: JamesIves/github-pages-deploy-action@4.2.1
-        with:
-          branch: gh-pages
-          folder: dist
+#      - name: Deploy to Github Pages
+#        uses: JamesIves/github-pages-deploy-action@4.2.1
+#        with:
+#          branch: gh-pages
+#          folder: dist
 
       # Собираем Storybook
       - name: Build Storybook
