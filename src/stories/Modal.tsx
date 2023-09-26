@@ -3,7 +3,7 @@ import './modal.css';
 
 interface ModalProps {
   visible: boolean;
-  children?: string[];
+  children: React.ReactNode;
 }
 
 export function Modal({ visible = false, children }: ModalProps) {
@@ -13,6 +13,7 @@ export function Modal({ visible = false, children }: ModalProps) {
     <div className={'storybook-modal'}>
       <h3>Title</h3>
       <button type="button">Close</button>
+      {children}
     </div>
   );
 }

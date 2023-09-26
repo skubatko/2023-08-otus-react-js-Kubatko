@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Button } from './Button';
 import './header.css';
+import { Logo } from './Logo';
 
 type User = {
   name: string;
@@ -18,6 +19,7 @@ export function Header({ user, onLogin, onLogout, onCreateAccount }: HeaderProps
   return (
     <header>
       <div className="storybook-header">
+        <Logo />
         <div>
           <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
             <g fill="none" fillRule="evenodd">
