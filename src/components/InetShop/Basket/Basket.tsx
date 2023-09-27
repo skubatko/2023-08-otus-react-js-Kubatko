@@ -1,12 +1,12 @@
 import React from 'react';
-import { Button } from '../Button';
+import { Button } from '../../../stories/Button';
 import './basket.css';
 
 interface BasketProps {
   counter: number;
 }
 
-export function Basket({ counter = 0, ...props }: BasketProps) {
+export function Basket({ counter = 0 }: BasketProps) {
   if (counter === 0) return <Button size="small" label="Add" />;
 
   return (

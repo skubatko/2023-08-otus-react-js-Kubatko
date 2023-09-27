@@ -6,6 +6,10 @@ import { Basket } from './Basket';
 const meta: Meta<typeof Basket> = {
   title: 'Example/Basket',
   component: Basket,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
 export default meta;

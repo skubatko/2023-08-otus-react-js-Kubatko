@@ -5,6 +5,10 @@ import { Layout } from './Layout';
 const meta: Meta<typeof Layout> = {
   title: 'Example/Layout',
   component: Layout,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
 export default meta;

@@ -6,6 +6,10 @@ const meta: Meta<typeof Modal> = {
   title: 'Example/Modal',
   component: Modal,
   argTypes: { visible: true },
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
 export default meta;

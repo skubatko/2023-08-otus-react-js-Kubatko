@@ -5,6 +5,10 @@ import { ProductShortCard } from './ProductShortCard';
 const meta: Meta<typeof ProductShortCard> = {
   title: 'Example/ProductShortCard',
   component: ProductShortCard,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
 export default meta;
