@@ -1,3 +1,6 @@
+/* eslint-disable import/named */
+// noinspection TypeScriptUnresolvedVariable
+
 import { ConfigProvider, theme as antdTheme, ThemeConfig } from 'antd';
 import React, { createContext, FC, useCallback, useContext, useInsertionEffect, useMemo, useState } from 'react';
 import vars from '../../styles/common.scss';
