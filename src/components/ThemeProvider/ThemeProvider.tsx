@@ -1,6 +1,6 @@
 import { ConfigProvider, theme as antdTheme, ThemeConfig } from 'antd';
 import React, { createContext, FC, useCallback, useContext, useInsertionEffect, useMemo, useState } from 'react';
-import vars from './common.scss';
+import vars from '../../styles/common.scss';
 import s from './ThemeProvider.sass';
 
 export type ThemeProviderProps = {
