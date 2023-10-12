@@ -13,6 +13,13 @@
     font-size: 32px;
     line-height: 1;
     margin: 0 0 4px;
-    display: inline-block;
     vertical-align: top;
+}
+
+.storybook-layout--input {
+    padding: 14px 0;
+}
+
+.storybook-layout--button {
+    padding: 14px 0;
 }

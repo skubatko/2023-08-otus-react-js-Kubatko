@@ -14,9 +14,13 @@ export const Layout: React.FC = () => {
     <article>
       <section className={'storybook-layout'}>
         <h2>Layout</h2>
+        <div className={'storybook-layout--input'}>
+          <input onChange={onChangeInputText} />
+        </div>
+        <div className={'storybook-layout--button'}>
+          <Button label="Open" onClick={openModal} />
+        </div>
       </section>
-      <input onChange={onChangeInputText} />
-      <Button label="Open" onClick={openModal} />
       <Modal visible={modalVisible} value={inputText} onClose={closeModal} />
     </article>
   );
