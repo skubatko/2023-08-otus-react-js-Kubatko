@@ -1,24 +1,19 @@
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
-import cn from 'clsx';
-import React, { FC } from 'react';
+import React from 'react';
 import { Theme, useThemeContext } from '../ThemeProvider/ThemeProvider';
-import s from './ThemeSwitcher.sass';
-
-export type ThemeSwitcherProps = {
-  className?: string;
-};
+import './themeSwitcher.css';
 
 const icons = {
   [Theme.light]: <DarkModeIcon />,
   [Theme.dark]: <LightModeIcon />,
 };
 
-export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
+export const ThemeSwitcher: React.FC = () => {
   const { theme, toggleTheme } = useThemeContext();
   return (
-    <button type="button" className={cn(s.root, className)} onClick={toggleTheme}>
-      {icons[theme]}
+    <button type="button" className={'storybook-theme-switcher'} onClick={toggleTheme}>
+      theme: {icons[theme]}
     </button>
   );
 };
