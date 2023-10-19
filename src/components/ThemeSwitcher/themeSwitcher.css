@@ -1,0 +1,7 @@
+.storybook-theme-switcher {
+    border: 0;
+    padding: 4px;
+    background: gray;
+    outline: none;
+    cursor: pointer;
+}
