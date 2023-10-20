@@ -1,0 +1,12 @@
+.storybook-product-card {
+    position: relative;
+    z-index: 0;
+    text-align: center;
+}
+
+.storybook-product-card--image {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    object-fit: cover;
+}
