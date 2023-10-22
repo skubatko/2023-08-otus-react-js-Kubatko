@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react';
 import { StoryObj } from '@storybook/react';
-import { Product } from '../Product/Product';
+import { getRandomId } from '../../../utils/random';
 import { ProductList } from './ProductList';
 
 const meta: Meta<typeof ProductList> = {
@@ -17,6 +17,6 @@ type Story = StoryObj<typeof ProductList>;
 
 export const Default: Story = {
   args: {
-    products: [Product],
+    initialProducts: [{ id: getRandomId(), name: 'initialProduct' }],
   },
 };

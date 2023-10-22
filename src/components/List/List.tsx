@@ -1,18 +1,8 @@
 import React from 'react';
-import { getRandomId } from '../../utils/random';
 import './list.css';
-import { ListItem } from './ListItem/ListItem';
 
 interface ListProps {
-  items: React.ReactNode[];
+  children: React.ReactNode[];
 }
 
-export const List: React.FC<ListProps> = ({ items }) => {
-  return (
-    <div className={'storybook-list'}>
-      {items.map((item) => (
-        <ListItem key={getRandomId()}>{item}</ListItem>
-      ))}
-    </div>
-  );
-};
+export const List: React.FC<ListProps> = ({ children }) => <ul className={'storybook-list'}>{children}</ul>;
