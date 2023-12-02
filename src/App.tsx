@@ -1,23 +1,23 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import { LocalizationProvider } from './components/LocalizationProvider/LocalizationProvider';
-import { ThemeProvider } from './components/ThemeProvider/ThemeProvider';
-import logo from './logo.svg';
+import { Layout } from './layout';
+import { Navigation } from './navigation/Navigation';
+import { ThemeProvider } from './theming';
 
 function App() {
   return (
-    <div className="App">
-      <LocalizationProvider />
-      <ThemeProvider>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Текст писать тут
-          </p>
-        </header>
-      </ThemeProvider>
-      ;
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <LocalizationProvider />
+        <ThemeProvider>
+          <Layout>
+            <Navigation />
+          </Layout>
+        </ThemeProvider>
+      </div>
+    </BrowserRouter>
   );
 }
 
