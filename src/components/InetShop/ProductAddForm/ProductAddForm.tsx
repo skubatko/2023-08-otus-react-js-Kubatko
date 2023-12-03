@@ -21,6 +21,10 @@ export const ProductAddForm: FC = () => {
       errors.text = 'Введите название';
       errors.isValid = false;
     }
+    if (values.cost < 0) {
+      errors.text = 'Стоимость не должна быть отрицательной';
+      errors.isValid = false;
+    }
     return errors;
   };
 
