@@ -1,4 +1,4 @@
-import { Form, Formik } from 'formik';
+import { Field, Form, Formik } from 'formik';
 import React, { FC } from 'react';
 import './productAddForm.css';
 
@@ -21,8 +21,9 @@ export const ProductAddForm: FC = () => {
       errors.text = 'Введите название';
       errors.isValid = false;
     }
+
     if (values.cost < 0) {
-      errors.text = 'Стоимость не должна быть отрицательной';
+      errors.text = 'Стоимость должна быть неотрицательным числом';
       errors.isValid = false;
     }
     return errors;
@@ -90,16 +91,12 @@ export const ProductAddForm: FC = () => {
               <label htmlFor="cost" className={'storybook-product-add-form-item--label'}>
                 Стоимость
               </label>
-              <input
-                id="cost"
-                type="text"
-                name="cost"
-                onChange={props.handleChange}
-                onBlur={props.handleBlur}
-                value={props.values.cost}
-              />
+              <Field id="cost" type="number" name="cost" />
             </span>
           </div>
+
+          {props.errors.text && <div>{props.errors.text}</div>}
+
           <button type="submit" disabled={!props.errors.isValid}>
             Сохранить
           </button>
