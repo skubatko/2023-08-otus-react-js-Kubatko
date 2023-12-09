@@ -1,22 +1,20 @@
 import React from 'react';
-import './App.css';
-import { LocalizationProvider } from './components/LocalizationProvider/LocalizationProvider';
-import { ThemeProvider } from './components/ThemeProvider/ThemeProvider';
-import logo from './logo.svg';
+import { BrowserRouter } from 'react-router-dom';
+import { Layout } from 'src/layout';
+import { Navigation } from 'src/navigation/Navigation';
+import { ThemeProvider } from 'src/theming';
+import { Head } from './Head';
 
 function App() {
   return (
-    <div className="App">
-      <LocalizationProvider />
+    <BrowserRouter>
+      <Head />
       <ThemeProvider>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-        </header>
+        <Layout>
+          <Navigation />
+        </Layout>
       </ThemeProvider>
-    </div>
+    </BrowserRouter>
   );
 }
 

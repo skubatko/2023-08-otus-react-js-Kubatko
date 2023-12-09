@@ -1,9 +1,8 @@
-/* eslint-disable import/named */
-// noinspection TypeScriptUnresolvedVariable
-
-import { ConfigProvider, theme as antdTheme, ThemeConfig } from 'antd';
-import React, { createContext, FC, useCallback, useContext, useInsertionEffect, useMemo, useState } from 'react';
-import vars from '../../styles/common.scss';
+import React, { createContext, FC, useCallback, useContext, useInsertionEffect, useState, useMemo } from 'react';
+import { ConfigProvider, theme as antdTheme } from 'antd';
+import { ThemeConfig } from 'antd/es/config-provider/context';
+import vars from 'src/styles/common.scss';
+import { Theme } from './types';
 import s from './ThemeProvider.sass';
 
 export type ThemeProviderProps = {
@@ -15,11 +14,6 @@ export type ThemeContextType = {
   toggleTheme: () => void;
   setTheme: (theme: Theme) => void;
 };
-
-export enum Theme {
-  dark = 'dark',
-  light = 'light',
-}
 
 const ThemeContext = createContext<ThemeContextType>({} as ThemeContextType);
 
