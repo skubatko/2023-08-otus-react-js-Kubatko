@@ -1,14 +1,15 @@
 import React, { FC } from 'react';
 import { ProfileForm } from 'src/components/Forms/ProfileForm/ProfileForm';
 import { Frame } from 'src/components/Frame';
+import { Page } from 'src/components/Page';
 import s from './ProfileScreen.sass';
 
 export const ProfileScreen: FC = () => (
-  <div className={s.root}>
+  <Page title="Профиль" className={s.root}>
     <Frame>
       <ProfileForm />
     </Frame>
-  </div>
+  </Page>
 );
 
 export default ProfileScreen;

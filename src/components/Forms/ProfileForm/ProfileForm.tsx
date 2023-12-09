@@ -8,16 +8,14 @@ interface ProfileFormProps {
 }
 
 interface Errors {
-  text: string;
-  isValid: boolean;
+  text?: string;
 }
 
 export const ProfileForm: FC = () => {
   const validate = (values: ProfileFormProps) => {
-    const errors: Errors = { text: '', isValid: true };
+    const errors: Errors = {};
     if (!values.name) {
       errors.text = 'Введите имя';
-      errors.isValid = false;
     }
     return errors;
   };
@@ -27,13 +25,13 @@ export const ProfileForm: FC = () => {
       initialValues={{ name: '', about: '' }}
       onSubmit={(values, actions) => {
         console.log('actions: ', actions);
+        console.log('values: ', values);
         actions.resetForm();
       }}
       validate={validate}
     >
       {(props) => (
         <Form>
-          <h1>Профиль</h1>
           <div className={'storybook-profile-form--item'}>
             <span>
               <label htmlFor="name" className={'storybook-profile-form-item--label'}>
