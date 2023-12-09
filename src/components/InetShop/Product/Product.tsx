@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import { Button } from '../../../stories/Button';
 import './product.css';
 
-interface ProductProps {
-  id: number;
+export interface ProductProps {
+  id: string;
   name: string;
 }
 

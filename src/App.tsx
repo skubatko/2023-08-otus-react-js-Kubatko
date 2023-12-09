@@ -16,7 +16,6 @@ function App() {
           </p>
         </header>
       </ThemeProvider>
-      ;
     </div>
   );
 }

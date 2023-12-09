@@ -24,7 +24,7 @@ export const LoginForm: FC = () => {
 
   return (
     <Formik
-      initialValues={{ email: '', about: '' }}
+      initialValues={{ email: '', password: '' }}
       onSubmit={(values, actions) => {
         console.log('actions: ', actions);
         actions.resetForm();
@@ -45,7 +45,7 @@ export const LoginForm: FC = () => {
                 name="email"
                 onChange={props.handleChange}
                 onBlur={props.handleBlur}
-                value={props.values.name}
+                value={props.values.email}
               />
             </span>
           </div>
@@ -60,11 +60,11 @@ export const LoginForm: FC = () => {
                 name="password"
                 onChange={props.handleChange}
                 onBlur={props.handleBlur}
-                value={props.values.description}
+                value={props.values.password}
               />
             </span>
           </div>
-          <button type="submit" disabled={!props.errors.isValid}>
+          <button type="submit" disabled={!props.isValid}>
             Сохранить
           </button>
         </Form>

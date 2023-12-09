@@ -5,7 +5,7 @@ import { Modal } from './Modal';
 const meta: Meta<typeof Modal> = {
   title: 'Example/Modal',
   component: Modal,
-  argTypes: { visible: true },
+  argTypes: {},
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',

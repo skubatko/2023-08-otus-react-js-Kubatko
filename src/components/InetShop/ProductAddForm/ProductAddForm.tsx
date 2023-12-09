@@ -95,9 +95,9 @@ export const ProductAddForm: FC = () => {
             </span>
           </div>
 
-          {props.errors.text && <div>{props.errors.text}</div>}
+          {props.errors.name && <div>{props.errors.name}</div>}
 
-          <button type="submit" disabled={!props.errors.isValid}>
+          <button type="submit" disabled={!props.isValid}>
             Сохранить
           </button>
         </Form>

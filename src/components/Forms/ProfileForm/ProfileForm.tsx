@@ -60,11 +60,11 @@ export const ProfileForm: FC = () => {
                 name="about"
                 onChange={props.handleChange}
                 onBlur={props.handleBlur}
-                value={props.values.description}
+                value={props.values.about}
               />
             </span>
           </div>
-          <button type="submit" disabled={!props.errors.isValid}>
+          <button type="submit" disabled={!props.isValid}>
             Сохранить
           </button>
         </Form>

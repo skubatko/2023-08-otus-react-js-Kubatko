@@ -21,7 +21,9 @@ export const Layout: React.FC = () => {
           <Button label="Open" onClick={openModal} />
         </div>
       </section>
-      <Modal visible={modalVisible} value={inputText} onClose={closeModal} />
+      <Modal visible={modalVisible} onClose={closeModal}>
+        {inputText}
+      </Modal>
     </article>
   );
 };
