@@ -44,6 +44,19 @@ export const Header = memo<HeaderOriginProps>(({ className }) => {
             </NavLink>
           ),
         },
+        {
+          key: '/products',
+          horizontalElem: (
+            <NavLink className={horClassName} to="/products">
+              Товары
+            </NavLink>
+          ),
+          verticalElem: (
+            <NavLink className={verClassName} to="/products">
+              Товары
+            </NavLink>
+          ),
+        },
       ],
       right: [
         {

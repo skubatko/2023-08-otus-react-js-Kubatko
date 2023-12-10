@@ -27,6 +27,7 @@ module.exports = (_, args) => {
       alias: {
         src,
       },
+      fallback: { crypto: false },
     },
     output: {
       path: dist,
