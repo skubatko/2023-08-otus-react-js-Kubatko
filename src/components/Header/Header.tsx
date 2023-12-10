@@ -60,6 +60,19 @@ export const Header = memo<HeaderOriginProps>(({ className }) => {
       ],
       right: [
         {
+          key: '/basket',
+          horizontalElem: (
+            <NavLink className={horClassName} to="/basket">
+              Корзина
+            </NavLink>
+          ),
+          verticalElem: (
+            <NavLink className={verClassName} to="/basket">
+              Корзина
+            </NavLink>
+          ),
+        },
+        {
           key: 'theme-switcher',
           horizontalElem: <ThemeSwitcher className={s.switcher} />,
           verticalElem: <ThemeSwitcher className={s.switcher} />,
