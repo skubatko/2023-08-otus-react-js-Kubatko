@@ -32,9 +32,9 @@ export const ProfileForm: FC = () => {
     >
       {(props) => (
         <Form>
-          <div className={'storybook-profile-form--item'}>
+          <div className="storybook-profile-form--item">
             <span>
-              <label htmlFor="name" className={'storybook-profile-form-item--label'}>
+              <label htmlFor="name" className="storybook-profile-form-item--label">
                 Имя
               </label>
               <input
@@ -47,9 +47,9 @@ export const ProfileForm: FC = () => {
               />
             </span>
           </div>
-          <div className={'storybook-profile-form--item'}>
+          <div className="storybook-profile-form--item">
             <span>
-              <label htmlFor="about" className={'storybook-profile-form-item--label'}>
+              <label htmlFor="about" className="storybook-profile-form-item--label">
                 Кратко о себе
               </label>
               <input

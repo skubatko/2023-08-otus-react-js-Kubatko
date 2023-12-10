@@ -20,7 +20,7 @@ export const ProductScreen: FC = () => {
           <Button label="Open" onClick={openModal} />
         </div>
         <Modal visible={modalVisible} onClose={closeModal}>
-          {<ProductAddForm />}
+          <ProductAddForm />
         </Modal>
       </Frame>
     </Page>

@@ -57,9 +57,8 @@ export const hex2rgb = (color) => {
 export const getNumberedArray = (arr) => arr.map((value, number) => ({ value, number }));
 export const toStringArray = (arr) => arr.map(({ value, number }) => `${value}_${number}`);
 
-export const transformCustomers = (customers) => {
-  return customers.reduce((acc, customer) => {
+export const transformCustomers = (customers) =>
+  customers.reduce((acc, customer) => {
     acc[customer.id] = { name: customer.name, age: customer.age, isSubscribed: customer.isSubscribed };
     return acc;
   }, {});
-};

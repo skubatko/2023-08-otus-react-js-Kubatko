@@ -37,7 +37,6 @@ const reducer = (state: ModalState, action: ModalAction): ModalState => {
 interface ModalProps {
   children: React.ReactNode;
   onClose?: () => void;
-  container?: HTMLElement;
   visible?: boolean;
   afterClose?: () => void;
 }
@@ -50,11 +49,11 @@ export function ModalBase({ visible = false, afterClose, onClose, children }: Mo
   };
 
   return (
-    <div className={'storybook-modal--root'} onTransitionEnd={onTransitionEnd}>
-      <div className={'storybook-modal'}>
+    <div className="storybook-modal--root" onTransitionEnd={onTransitionEnd}>
+      <div className="storybook-modal">
         <h3>Modal</h3>
-        <div className={'storybook-modal--text'}>{children}</div>
-        <div className={'storybook-modal--button'}>
+        <div className="storybook-modal--text">{children}</div>
+        <div className="storybook-modal--button">
           <Button label="Close" onClick={onClose} />
         </div>
       </div>
@@ -62,7 +61,8 @@ export function ModalBase({ visible = false, afterClose, onClose, children }: Mo
   );
 }
 
-export const Modal: FC<ModalProps> = ({ container = document.body, visible, afterClose, ...props }) => {
+export const Modal: FC<ModalProps> = ({ children, visible, afterClose, ...props }) => {
+  const container = document.body;
   const [state, dispatch] = useReducer(reducer, { visible, mounted: false }, undefined);
 
   useEffect(() => {
@@ -80,5 +80,10 @@ export const Modal: FC<ModalProps> = ({ container = document.body, visible, afte
 
   if (!state.mounted) return null;
 
-  return createPortal(<ModalBase afterClose={handleAfterClose} visible={state.visible} {...props} />, container);
+  return createPortal(
+    <ModalBase afterClose={handleAfterClose} visible={state.visible} {...props}>
+      {children}
+    </ModalBase>,
+    container
+  );
 };

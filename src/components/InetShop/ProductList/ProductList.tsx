@@ -22,7 +22,9 @@ export const ProductList: FC<ProductListProps> = ({ initialProducts = [] }) => {
           <ListItem key={product.id}>{product.name}</ListItem>
         ))}
       </List>
-      <button onClick={handleShowMoreProduct}>Показать еще</button>
+      <button type="button" onClick={handleShowMoreProduct}>
+        Показать еще
+      </button>
     </div>
   );
 };

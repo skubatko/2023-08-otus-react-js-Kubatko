@@ -34,9 +34,9 @@ export const LoginForm: FC = () => {
       {(props) => (
         <Form>
           <h1>Вход</h1>
-          <div className={'storybook-login-form--item'}>
+          <div className="storybook-login-form--item">
             <span>
-              <label htmlFor="email" className={'storybook-login-form-item--label'}>
+              <label htmlFor="email" className="storybook-login-form-item--label">
                 Email
               </label>
               <input
@@ -49,9 +49,9 @@ export const LoginForm: FC = () => {
               />
             </span>
           </div>
-          <div className={'storybook-login-form--item'}>
+          <div className="storybook-login-form--item">
             <span>
-              <label htmlFor="description" className={'storybook-login-form-item--label'}>
+              <label htmlFor="description" className="storybook-login-form-item--label">
                 Пароль
               </label>
               <input

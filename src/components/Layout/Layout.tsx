@@ -12,12 +12,12 @@ export const Layout: React.FC = () => {
 
   return (
     <article>
-      <section className={'storybook-layout'}>
+      <section className="storybook-layout">
         <h2>Layout</h2>
-        <div className={'storybook-layout--input'}>
+        <div className="storybook-layout--input">
           <input onChange={onChangeInputText} />
         </div>
-        <div className={'storybook-layout--button'}>
+        <div className="storybook-layout--button">
           <Button label="Open" onClick={openModal} />
         </div>
       </section>
