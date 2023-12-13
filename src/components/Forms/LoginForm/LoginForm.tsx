@@ -24,7 +24,7 @@ export const LoginForm: FC = () => {
 
   return (
     <Formik
-      initialValues={{ email: '', about: '' }}
+      initialValues={{ email: '', password: '' }}
       onSubmit={(values, actions) => {
         console.log('actions: ', actions);
         actions.resetForm();
@@ -34,9 +34,9 @@ export const LoginForm: FC = () => {
       {(props) => (
         <Form>
           <h1>Вход</h1>
-          <div className={'storybook-login-form--item'}>
+          <div className="storybook-login-form--item">
             <span>
-              <label htmlFor="email" className={'storybook-login-form-item--label'}>
+              <label htmlFor="email" className="storybook-login-form-item--label">
                 Email
               </label>
               <input
@@ -45,13 +45,13 @@ export const LoginForm: FC = () => {
                 name="email"
                 onChange={props.handleChange}
                 onBlur={props.handleBlur}
-                value={props.values.name}
+                value={props.values.email}
               />
             </span>
           </div>
-          <div className={'storybook-login-form--item'}>
+          <div className="storybook-login-form--item">
             <span>
-              <label htmlFor="description" className={'storybook-login-form-item--label'}>
+              <label htmlFor="description" className="storybook-login-form-item--label">
                 Пароль
               </label>
               <input
@@ -60,11 +60,11 @@ export const LoginForm: FC = () => {
                 name="password"
                 onChange={props.handleChange}
                 onBlur={props.handleBlur}
-                value={props.values.description}
+                value={props.values.password}
               />
             </span>
           </div>
-          <button type="submit" disabled={!props.errors.isValid}>
+          <button type="submit" disabled={!props.isValid}>
             Сохранить
           </button>
         </Form>

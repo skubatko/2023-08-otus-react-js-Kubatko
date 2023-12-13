@@ -41,9 +41,9 @@ export const ProductAddForm: FC = () => {
       {(props) => (
         <Form>
           <h1>Добавить товар</h1>
-          <div className={'storybook-product-add-form--item'}>
+          <div className="storybook-product-add-form--item">
             <span>
-              <label htmlFor="name" className={'storybook-product-add-form-item--label'}>
+              <label htmlFor="name" className="storybook-product-add-form-item--label">
                 Название
               </label>
               <input
@@ -56,9 +56,9 @@ export const ProductAddForm: FC = () => {
               />
             </span>
           </div>
-          <div className={'storybook-product-add-form--item'}>
+          <div className="storybook-product-add-form--item">
             <span>
-              <label htmlFor="description" className={'storybook-product-add-form-item--label'}>
+              <label htmlFor="description" className="storybook-product-add-form-item--label">
                 Описание
               </label>
               <input
@@ -71,9 +71,9 @@ export const ProductAddForm: FC = () => {
               />
             </span>
           </div>
-          <div className={'storybook-product-add-form--item'}>
+          <div className="storybook-product-add-form--item">
             <span>
-              <label htmlFor="category" className={'storybook-product-add-form-item--label'}>
+              <label htmlFor="category" className="storybook-product-add-form-item--label">
                 Категория
               </label>
               <input
@@ -86,18 +86,18 @@ export const ProductAddForm: FC = () => {
               />
             </span>
           </div>
-          <div className={'storybook-product-add-form--item'}>
+          <div className="storybook-product-add-form--item">
             <span>
-              <label htmlFor="cost" className={'storybook-product-add-form-item--label'}>
+              <label htmlFor="cost" className="storybook-product-add-form-item--label">
                 Стоимость
               </label>
               <Field id="cost" type="number" name="cost" />
             </span>
           </div>
 
-          {props.errors.text && <div>{props.errors.text}</div>}
+          {props.errors.name && <div>{props.errors.name}</div>}
 
-          <button type="submit" disabled={!props.errors.isValid}>
+          <button type="submit" disabled={!props.isValid}>
             Сохранить
           </button>
         </Form>

@@ -1,35 +1,44 @@
 {
-  "env": {
-    "browser": true,
-    "node": true,
-    "commonjs": true,
-    "es2021": true
-  },
-  "extends": [
-    "plugin:react/jsx-runtime",
-    // позволяет не импортировать реакт
-    "plugin:react-hooks/recommended",
-    //поддержка хуков
-    "plugin:import/recommended",
-    // подсказки при импорте
-    // "airbnb",
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
     "prettier",
-    // отключает конфликты с prettier
-    "plugin:prettier/recommended",
-    "plugin:jest/recommended",
-    "eslint:recommended",
-    "plugin:react/recommended",
+    "react-hooks"
+  ],
+  "extends": [
+    "airbnb",
+    "prettier",
+    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  "overrides": [],
-  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": "latest"
+    "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "@typescript-eslint"
-  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": [
+          "."
+        ],
+        "extensions": [
+          ".ts",
+          ".tsx"
+        ]
+      }
+    }
+  },
+  "globals": {
+    "document": true,
+    "navigator": true,
+    "cy": true,
+    "fetch": true,
+    "requestAnimationFrame": true,
+    "cancelAnimationFrame": true,
+    "window": true
+  },
+  "env": {
+    "jest": true
+  },
   "rules": {
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": [
@@ -77,6 +86,7 @@
     ],
     "react/jsx-props-no-spreading": 0,
     "import/extensions": 0,
+    "no-console": 0,
     "no-multi-assign": 0,
     "react/prop-types": 0,
     "camelcase": 0,
@@ -97,6 +107,7 @@
     "jsx-a11y/mouse-events-have-key-events": 0,
     "react/destructuring-assignment": 0,
     "jsx-a11y/control-has-associated-label": 0,
+    "jsx-a11y/label-has-associated-control": 0,
     "react/static-property-placement": 0,
     "react/jsx-filename-extension": [
       2,
@@ -109,20 +120,5 @@
         ]
       }
     ]
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
-    },
-    "import/resolver": {
-      "node": {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx"
-        ]
-      }
-    }
   }
 }

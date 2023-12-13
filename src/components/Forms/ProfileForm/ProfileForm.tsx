@@ -8,16 +8,14 @@ interface ProfileFormProps {
 }
 
 interface Errors {
-  text: string;
-  isValid: boolean;
+  text?: string;
 }
 
 export const ProfileForm: FC = () => {
   const validate = (values: ProfileFormProps) => {
-    const errors: Errors = { text: '', isValid: true };
+    const errors: Errors = {};
     if (!values.name) {
       errors.text = 'Введите имя';
-      errors.isValid = false;
     }
     return errors;
   };
@@ -27,16 +25,16 @@ export const ProfileForm: FC = () => {
       initialValues={{ name: '', about: '' }}
       onSubmit={(values, actions) => {
         console.log('actions: ', actions);
+        console.log('values: ', values);
         actions.resetForm();
       }}
       validate={validate}
     >
       {(props) => (
         <Form>
-          <h1>Профиль</h1>
-          <div className={'storybook-profile-form--item'}>
+          <div className="storybook-profile-form--item">
             <span>
-              <label htmlFor="name" className={'storybook-profile-form-item--label'}>
+              <label htmlFor="name" className="storybook-profile-form-item--label">
                 Имя
               </label>
               <input
@@ -49,9 +47,9 @@ export const ProfileForm: FC = () => {
               />
             </span>
           </div>
-          <div className={'storybook-profile-form--item'}>
+          <div className="storybook-profile-form--item">
             <span>
-              <label htmlFor="about" className={'storybook-profile-form-item--label'}>
+              <label htmlFor="about" className="storybook-profile-form-item--label">
                 Кратко о себе
               </label>
               <input
@@ -60,11 +58,11 @@ export const ProfileForm: FC = () => {
                 name="about"
                 onChange={props.handleChange}
                 onBlur={props.handleBlur}
-                value={props.values.description}
+                value={props.values.about}
               />
             </span>
           </div>
-          <button type="submit" disabled={!props.errors.isValid}>
+          <button type="submit" disabled={!props.isValid}>
             Сохранить
           </button>
         </Form>

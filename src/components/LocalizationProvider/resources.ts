@@ -58,7 +58,7 @@ export const resources = {
           },
         },
         HomeScreen: {
-          title: 'Home',
+          title: 'HomeScreen',
           desc: `Welcome to the react course from otus!\n\nThis is a training project of the course. Here you will find materials for lectures, homework, as well as examples of some complex components.\n\nThe project is written in **typescript**, **redux**, **redux-saga** using **webpack**. In it , you can spy on the implementation of the dark/light theme, locale switching, navigation, token exchange between browser tabs.\n\nThe project also has its own server implemented on **graphql**, **apollo**, **express** and using a json file as a database (in real development, do not do this, it's just to save you from installing the database). Interaction with the server is implemented, namely the ability to register a user, log in to an account, but do not forget to start the server locally - use the _start:client_ and _start:server_ commands.\n\nWelcome and good luck in learning!`,
         },
         TeachersScreen: {
@@ -148,9 +148,9 @@ export const resources = {
         },
         header: {
           nav: 'Navigation',
-          root: 'Home',
+          root: 'HomeScreen',
           profile: 'Profile',
-          'home-works': 'Home works',
+          'home-works': 'HomeScreen works',
           examples: 'Examples',
           lessons: 'Lessons',
           teachers: 'Teachers',

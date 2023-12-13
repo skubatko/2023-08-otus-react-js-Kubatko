@@ -12,7 +12,7 @@ interface ProductShortCardProps {
 export const ProductShortCard: FC<ProductShortCardProps> = ({ cost, img, name, shortDescription }) => (
   <div className="storybook-product-short-card">
     <div>{cost}</div>
-    <img className="storybook-product-short-card--image" src={img} alt="image" />
+    <img className="storybook-product-short-card--image" src={img} alt="product-short-card" />
     <div>{name}</div>
     <div>{shortDescription}</div>
     <Button size="large" label="Add to Basket" />

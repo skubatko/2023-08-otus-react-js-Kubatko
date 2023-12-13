@@ -13,7 +13,7 @@ interface ProductCardProps {
 export const ProductCard: FC<ProductCardProps> = ({ cost, img, category, name, description }) => (
   <div className="storybook-product-card">
     <div>{cost}</div>
-    <img className="storybook-product-card--image" src={img} alt="image" />
+    <img className="storybook-product-card--image" src={img} alt="product-card" />
     <div>{category}</div>
     <div>{name}</div>
     <div>{description}</div>
