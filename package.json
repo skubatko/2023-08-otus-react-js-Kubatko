@@ -66,6 +66,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.13",
     "@mui/material": "^5.14.13",
+    "@reduxjs/toolkit": "^2.0.1",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^7.6.4",
     "@storybook/testing-library": "^0.2.2",
@@ -80,7 +81,9 @@
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-i18next": "^13.2.2",
+    "react-redux": "^9.0.4",
     "react-router-dom": "^6.20.1",
+    "redux-saga": "^1.2.3",
     "sass": "^1.69.3",
     "symbol-observable": "^4.0.0",
     "unchanged": "^2.2.1"
