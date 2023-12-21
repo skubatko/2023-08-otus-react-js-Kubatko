@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import AuthScreen from 'src/screens/AuthScreen';
 import BasketScreen from 'src/screens/BasketScreen';
 import HomeScreen from 'src/screens/HomeScreen';
 import NotFoundScreen from 'src/screens/NotFoundScreen';
@@ -13,5 +14,8 @@ export const Navigation: FC = () => (
     <Route path="products" element={<ProductScreen />} />
     <Route path="basket" element={<BasketScreen />} />
     <Route path="*" element={<NotFoundScreen />} />
+    <Route path="auth/*" element={<AuthScreen />}>
+      <Route path=":mode" element={<AuthScreen />} />
+    </Route>
   </Routes>
 );
