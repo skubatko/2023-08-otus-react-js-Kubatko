@@ -1,11 +1,10 @@
-import React, { memo } from 'react';
-import cn from 'clsx';
-import Input from 'antd/lib/input';
-import { FormikHandlers } from 'formik/dist/types';
 import { LockOutlined } from '@ant-design/icons';
-import { useTranslation } from 'react-i18next';
-import { AuthFormProps } from 'src/components/Forms/AuthForm';
+import Input from 'antd/lib/input';
+import cn from 'clsx';
+import { FormikHandlers } from 'formik/dist/types';
+import React, { memo } from 'react';
 import { FormItem } from 'src/components/FormItem';
+import { AuthFormProps } from 'src/components/Forms/AuthForm';
 import { getValidates } from 'src/utils/validation';
 import s from './PasswordField.sass';
 
@@ -23,18 +22,10 @@ const prefix = <LockOutlined className="site-form-item-icon" />;
 
 export const PasswordField = memo<PasswordFieldProps>(
   ({ className, onChange, onBlur, onPressEnter, touched, value, errors, disabled, submitCount }) => {
-    const { t } = useTranslation();
-
     const { validateStatus, help } = getValidates(errors, touched, submitCount);
 
     return (
-      <FormItem
-        className={cn(s.root, className)}
-        title={t(`forms.AuthForm.password.title`)}
-        required
-        validateStatus={validateStatus}
-        help={help}
-      >
+      <FormItem className={cn(s.root, className)} title="Пароль" required validateStatus={validateStatus} help={help}>
         <Input.Password
           prefix={prefix}
           onPressEnter={onPressEnter}
@@ -44,7 +35,7 @@ export const PasswordField = memo<PasswordFieldProps>(
           onChange={onChange}
           onBlur={onBlur}
           value={value}
-          placeholder={t(`forms.AuthForm.password.placeholder`)}
+          placeholder="Укажите пароль"
         />
       </FormItem>
     );

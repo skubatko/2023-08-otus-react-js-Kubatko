@@ -1,8 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { CaseReducer } from '@reduxjs/toolkit/src/createReducer';
 import { RootState } from './index';
 
-export const initializedSlice = createSlice<boolean, { init: CaseReducer<boolean> }, 'initialized'>({
+export const initializedSlice = createSlice({
   name: 'initialized',
   initialState: null,
   reducers: {

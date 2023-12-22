@@ -1,9 +1,8 @@
-import React, { memo } from 'react';
-import cn from 'clsx';
-import { Input } from 'antd';
-import { FormikHandlers } from 'formik/dist/types';
 import { LockOutlined } from '@ant-design/icons';
-import { useTranslation } from 'react-i18next';
+import { Input } from 'antd';
+import cn from 'clsx';
+import { FormikHandlers } from 'formik/dist/types';
+import React, { memo } from 'react';
 import { FormItem } from 'src/components/FormItem';
 import { getValidates } from 'src/utils/validation';
 import { ChangePasswordFormProps } from '../types';
@@ -23,18 +22,10 @@ const prefix = <LockOutlined className="site-form-item-icon" />;
 
 export const PasswordField = memo<PasswordFieldProps>(
   ({ className, onChange, onBlur, onPressEnter, touched, value, errors, disabled, submitCount, autoFocusElement }) => {
-    const { t } = useTranslation();
-
     const { validateStatus, help } = getValidates(errors, touched, submitCount);
 
     return (
-      <FormItem
-        className={cn(s.root, className)}
-        title={t(`forms.ChangePasswordForm.password.title`)}
-        required
-        validateStatus={validateStatus}
-        help={help}
-      >
+      <FormItem className={cn(s.root, className)} title="Пароль" required validateStatus={validateStatus} help={help}>
         <Input.Password
           ref={autoFocusElement}
           prefix={prefix}
@@ -45,7 +36,7 @@ export const PasswordField = memo<PasswordFieldProps>(
           onChange={onChange}
           onBlur={onBlur}
           value={value}
-          placeholder={t(`forms.ChangePasswordForm.password.placeholder`)}
+          placeholder="Укажите пароль"
         />
       </FormItem>
     );

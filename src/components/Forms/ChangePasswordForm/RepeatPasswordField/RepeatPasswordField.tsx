@@ -1,9 +1,8 @@
-import React, { memo } from 'react';
-import cn from 'clsx';
-import Input from 'antd/lib/input';
-import { FormikHandlers } from 'formik/dist/types';
 import { LockOutlined } from '@ant-design/icons';
-import { useTranslation } from 'react-i18next';
+import Input from 'antd/lib/input';
+import cn from 'clsx';
+import { FormikHandlers } from 'formik/dist/types';
+import React, { memo } from 'react';
 import { FormItem } from 'src/components/FormItem';
 import { getValidates } from 'src/utils/validation';
 import { ChangePasswordFormProps } from '../types';
@@ -23,14 +22,12 @@ const prefix = <LockOutlined className="site-form-item-icon" />;
 
 export const RepeatPasswordField = memo<PasswordFieldProps>(
   ({ className, onChange, onBlur, onPressEnter, touched, value, errors, disabled, submitCount }) => {
-    const { t } = useTranslation();
-
     const { validateStatus, help } = getValidates(errors, touched, submitCount);
 
     return (
       <FormItem
         className={cn(s.root, className)}
-        title={t(`forms.ChangePasswordForm.repeatPassword.title`)}
+        title="Повторите пароль"
         required
         validateStatus={validateStatus}
         help={help}
@@ -44,7 +41,7 @@ export const RepeatPasswordField = memo<PasswordFieldProps>(
           onChange={onChange}
           onBlur={onBlur}
           value={value}
-          placeholder={t(`forms.ChangePasswordForm.repeatPassword.placeholder`)}
+          placeholder="Повторите пароль"
         />
       </FormItem>
     );

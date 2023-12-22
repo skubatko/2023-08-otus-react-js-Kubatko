@@ -1,7 +1,7 @@
+import { FormikContextType, FormikErrors } from 'formik';
 import React, { useMemo } from 'react';
-import { FormikContextType } from 'formik';
-import { get } from './unchanged';
 import { Help } from '../components/FormItem';
+import { get } from './unchanged';
 
 export type ValidateStatus = 'error' | '';
 
@@ -35,7 +35,7 @@ export const getFieldCallbacks = <T = unknown>(
   key: string,
   { setFieldValue, setFieldTouched }: Pick<FormikContextType<unknown>, 'setFieldValue' | 'setFieldTouched'>
 ): { onBlur: () => void; onChange: (value: T) => void } => ({
-  onBlur: (): void => setFieldTouched(key, true),
+  onBlur: (): Promise<void | FormikErrors<unknown>> => setFieldTouched(key, true),
   onChange: (value): unknown => setFieldValue(key, value),
 });
 

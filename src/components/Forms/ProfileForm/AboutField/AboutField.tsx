@@ -1,8 +1,7 @@
-import React, { memo } from 'react';
-import cn from 'clsx';
 import Input from 'antd/lib/input';
+import cn from 'clsx';
 import { FormikHandlers } from 'formik/dist/types';
-import { useTranslation } from 'react-i18next';
+import React, { memo } from 'react';
 import { FormItem } from 'src/components/FormItem';
 import { getValidates } from 'src/utils/validation';
 import { ProfileFormProps } from '../types';
@@ -19,24 +18,17 @@ export type AboutFieldProps = Pick<ProfileFormProps, 'className' | 'disabled'> &
 
 export const AboutField = memo<AboutFieldProps>(
   ({ className, onChange, onBlur, touched, value, errors, disabled, submitCount }) => {
-    const { t } = useTranslation();
-
     const { validateStatus, help } = getValidates(errors, touched, submitCount);
 
     return (
-      <FormItem
-        className={cn(s.root, className)}
-        title={t(`forms.ProfileForm.about.title`)}
-        validateStatus={validateStatus}
-        help={help}
-      >
+      <FormItem className={cn(s.root, className)} title="О себе" validateStatus={validateStatus} help={help}>
         <Input.TextArea
           disabled={disabled}
           name="about"
           onChange={onChange}
           onBlur={onBlur}
           value={value}
-          placeholder={t(`forms.ProfileForm.about.placeholder`)}
+          placeholder="Напишите что-нибудь о себе"
         />
       </FormItem>
     );

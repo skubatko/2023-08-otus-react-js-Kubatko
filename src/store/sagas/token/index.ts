@@ -1,7 +1,7 @@
 import { put, select, takeEvery, takeLatest } from 'redux-saga/effects';
 import { storage } from 'src/utils/storage';
-import { TOKEN_KEY, tokenActions, tokenSelectors } from '../../token';
 import { profileActions } from '../../profile';
+import { TOKEN_KEY, tokenActions, tokenSelectors } from '../../token';
 import { TokenChannel } from './TokenChannel';
 
 const tokenChannel = new TokenChannel('token-saver-channel');
@@ -11,6 +11,7 @@ export function* setToken(): Generator {
   tokenChannel.setToken(token);
   if (token) storage.set(TOKEN_KEY, token);
 }
+
 export function* clearToken() {
   storage.remove(TOKEN_KEY);
   tokenChannel.setToken(null);
@@ -23,6 +24,6 @@ export function* getToken() {
 }
 
 export function* tokenSaga() {
-  yield takeEvery(tokenActions.logout().type, clearToken);
-  yield takeLatest(tokenActions.set().type, setToken); // setToken отправляет запрос, потому лучше использовать takeLatest
+  yield takeEvery(tokenActions.logout.type, clearToken);
+  yield takeLatest(tokenActions.set.type, setToken);
 }

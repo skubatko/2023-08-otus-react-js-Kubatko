@@ -1,9 +1,8 @@
-import React, { memo } from 'react';
-import cn from 'clsx';
-import { Input } from 'antd';
-import { FormikHandlers } from 'formik/dist/types';
 import { UserOutlined } from '@ant-design/icons';
-import { useTranslation } from 'react-i18next';
+import { Input } from 'antd';
+import cn from 'clsx';
+import { FormikHandlers } from 'formik/dist/types';
+import React, { memo } from 'react';
 import { FormItem } from 'src/components/FormItem';
 import { getValidates } from 'src/utils/validation';
 import { ProfileFormProps } from '../types';
@@ -22,14 +21,12 @@ const prefix = <UserOutlined />;
 
 export const NameField = memo<NameFieldProps>(
   ({ className, onChange, onBlur, autoFocusElement, touched, value, errors, disabled, submitCount }) => {
-    const { t } = useTranslation();
-
     const { validateStatus, help } = getValidates(errors, touched, submitCount);
 
     return (
       <FormItem
         className={cn(s.root, className)}
-        title={t(`forms.ProfileForm.name.title`)}
+        title="Псевдоним"
         required
         validateStatus={validateStatus}
         help={help}
@@ -44,7 +41,7 @@ export const NameField = memo<NameFieldProps>(
           onChange={onChange}
           onBlur={onBlur}
           value={value}
-          placeholder={t(`forms.ProfileForm.name.placeholder`)}
+          placeholder="Придумайте себе псевдоним"
         />
       </FormItem>
     );

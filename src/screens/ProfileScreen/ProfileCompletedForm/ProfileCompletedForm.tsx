@@ -1,16 +1,12 @@
-import React, { memo, useEffect, useMemo } from 'react';
+import { Button } from 'antd';
 import cn from 'clsx';
 import { FormikConfig, useFormik } from 'formik';
-import { useMutation } from '@apollo/client';
-import { Button, message } from 'antd';
+import React, { memo, useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
-import { ProfileForm, ProfileFormValues, ProfileFormErrors } from 'src/components/Forms/ProfileForm';
-import { createErrorHandlers } from 'src/utils/createErrorHandlers';
-import { isNotDefinedString } from 'src/utils/validation';
-import { profileSelectors } from 'src/store/profile';
+import { ProfileForm, ProfileFormErrors, ProfileFormValues } from 'src/components/Forms/ProfileForm';
 import { Title } from 'src/components/Title';
-import { UPDATE_PROFILE, UpdateProfileResponse, UpdateProfileVars } from './connection';
+import { profileSelectors } from 'src/store/profile';
+import { isNotDefinedString } from 'src/utils/validation';
 import s from './ProfileCompletedForm.sass';
 
 export type ProfileCompletedFormProps = {
@@ -19,43 +15,28 @@ export type ProfileCompletedFormProps = {
 
 export const ProfileCompletedForm = memo<ProfileCompletedFormProps>(({ className }) => {
   const profile = useSelector(profileSelectors.get);
-  const { t } = useTranslation();
-  const [update, { loading }] = useMutation<UpdateProfileResponse, UpdateProfileVars>(UPDATE_PROFILE);
 
   const { onSubmit, validate, initialValues } = useMemo<
     Pick<FormikConfig<ProfileFormValues>, 'onSubmit' | 'validate' | 'initialValues'>
-  >(() => {
-    const { catcherValidator } = createErrorHandlers<keyof ProfileFormValues>(
-      (code, _, error) => {
-        if (code === null) {
-          message.error(t(`errors.${error.message}`));
-        } else {
-          message.error(t(`errors.${code}`));
-        }
-      },
-      {
-        name: ['ERR_INVALID_NICKNAME'],
-      }
-    );
-    return {
+  >(
+    () => ({
       initialValues: {
         name: profile?.name,
         about: profile?.about,
       },
-      onSubmit: (values, { setErrors }) => {
-        update({ variables: { input: { name: values.name, about: values.about } } })
-          .then(() => message.success(t(`screens.ProfileScreen.updateProfile.success`)))
-          .catch(catcherValidator({ setErrors, getMessage: (code) => t(`errors.${code}`) }));
+      onSubmit: (values) => {
+        console.log(values.name, values.about);
       },
       validate: (values) => {
         const errors = {} as ProfileFormErrors;
         if (isNotDefinedString(values.name)) {
-          errors.name = t(`errors.is_required`);
+          errors.name = 'Обязательное поле';
         }
         return errors;
       },
-    };
-  }, [profile, t, update]);
+    }),
+    [profile]
+  );
 
   const formManager = useFormik<ProfileFormValues>({
     initialValues,
@@ -70,10 +51,10 @@ export const ProfileCompletedForm = memo<ProfileCompletedFormProps>(({ className
 
   return (
     <div className={cn(s.root, className)}>
-      <Title className={s.title}>{t(`screens.ProfileScreen.updateProfile.title`)}</Title>
+      <Title className={s.title}>Изменить профиль</Title>
       <ProfileForm formManager={formManager} />
-      <Button type="primary" loading={loading} onClick={submitForm}>
-        {t(`screens.ProfileScreen.updateProfile.save`)}
+      <Button type="primary" onClick={submitForm}>
+        Сохранить
       </Button>
     </div>
   );
