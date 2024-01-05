@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { Frame } from 'src/components/Frame';
-import { ProductList } from 'src/components/InetShop/ProductList/ProductList';
+import { BasketList } from 'src/components/InetShop/BasketList';
 import { Page } from 'src/components/Page';
 import { basketSelectors } from 'src/store/basket';
 import s from './BasketScreen.sass';
@@ -12,7 +12,7 @@ export const BasketScreen: FC = () => {
   return (
     <Page title="Корзина" className={s.root}>
       <Frame>
-        <ProductList initialProducts={basket} />
+        <BasketList initialProducts={basket} />
       </Frame>
     </Page>
   );

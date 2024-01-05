@@ -3,22 +3,21 @@ import { useDispatch } from 'react-redux';
 import { ProductItem } from 'src/components/InetShop/types';
 import { basketActions } from 'src/store/basket';
 import { Button } from 'src/stories/Button';
-import { getRandomId, getRandomName } from '../../../utils/random';
 import { List } from '../../List/List';
 import { ListItem } from '../../List/ListItem/ListItem';
-import './productList.css';
+import './basketList.css';
 
-interface ProductListProps {
+interface BasketListProps {
   initialProducts?: ProductItem[];
 }
 
-export const ProductList: FC<ProductListProps> = ({ initialProducts = [] }) => {
+export const BasketList: FC<BasketListProps> = ({ initialProducts = [] }) => {
   const [products, setProducts] = useState(initialProducts);
   const dispatch = useDispatch();
-  const handleShowMoreProduct = () => {
-    setProducts([...products, { id: getRandomId(), name: getRandomName() } as ProductItem]);
+  const removeFromBasket = (productId: string) => {
+    dispatch(basketActions.remove({ productId }));
+    setProducts(products.filter((p) => p.id !== productId));
   };
-  const addToBasket = (product: ProductItem) => dispatch(basketActions.add(product));
 
   return (
     <div className="storybook-product-list">
@@ -26,13 +25,10 @@ export const ProductList: FC<ProductListProps> = ({ initialProducts = [] }) => {
         {products.map((product) => (
           <ListItem key={product.id}>
             {product.name}
-            <Button label="В корзину" onClick={() => addToBasket(product)} />
+            <Button label="Удалить" onClick={() => removeFromBasket(product.id)} />
           </ListItem>
         ))}
       </List>
-      <button type="button" onClick={handleShowMoreProduct}>
-        Показать еще
-      </button>
     </div>
   );
 };
