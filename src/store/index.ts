@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
-import { token } from './token';
+import { basket } from './basket';
 import { initialized } from './initialized';
 import { profile } from './profile';
 import rootSaga from './sagas';
+import { token } from './token';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -12,6 +13,7 @@ export const store = configureStore({
     initialized,
     token,
     profile,
+    basket,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
 });

@@ -1,7 +1,10 @@
 import React, { FC, useEffect, useReducer } from 'react';
 import { createPortal } from 'react-dom';
-import { Button } from '../../stories/Button';
-import './modal.css';
+import { ModalBaseProps, ModalBase } from './ModalBase';
+
+export type ModalProps = Omit<ModalBaseProps, 'maskRef'> & {
+  container?: HTMLElement;
+};
 
 export enum ModalAction {
   VISIBLE,
@@ -34,36 +37,8 @@ const reducer = (state: ModalState, action: ModalAction): ModalState => {
   }
 };
 
-interface ModalProps {
-  children: React.ReactNode;
-  onClose?: () => void;
-  visible?: boolean;
-  afterClose?: () => void;
-}
-
-export function ModalBase({ visible = false, afterClose, onClose, children }: ModalProps) {
-  if (!visible) return null;
-
-  const onTransitionEnd = (): void => {
-    if (!visible) setTimeout(() => afterClose?.());
-  };
-
-  return (
-    <div className="storybook-modal--root" onTransitionEnd={onTransitionEnd}>
-      <div className="storybook-modal">
-        <h3>Modal</h3>
-        <div className="storybook-modal--text">{children}</div>
-        <div className="storybook-modal--button">
-          <Button label="Close" onClick={onClose} />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export const Modal: FC<ModalProps> = ({ children, visible, afterClose, ...props }) => {
-  const container = document.body;
-  const [state, dispatch] = useReducer(reducer, { visible, mounted: false }, undefined);
+export const Modal: FC<ModalProps> = ({ container = document.body, visible, afterClose, ...props }) => {
+  const [state, dispatch] = useReducer(reducer, { visible, mounted: false });
 
   useEffect(() => {
     if (visible) {
@@ -80,10 +55,5 @@ export const Modal: FC<ModalProps> = ({ children, visible, afterClose, ...props 
 
   if (!state.mounted) return null;
 
-  return createPortal(
-    <ModalBase afterClose={handleAfterClose} visible={state.visible} {...props}>
-      {children}
-    </ModalBase>,
-    container
-  );
+  return createPortal(<ModalBase afterClose={handleAfterClose} visible={state.visible} {...props} />, container);
 };
