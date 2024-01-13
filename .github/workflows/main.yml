@@ -2,7 +2,7 @@ name: Test, Lint, Build and Deploy on Github Pages
 
 on:
   push:
-    branches: [ "master", "main", "develop", "homework8--develop" ]
+    branches: [ "master", "main", "develop", "homework9--develop" ]
 
 permissions:
   contents: write
