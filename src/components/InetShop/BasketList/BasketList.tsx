@@ -14,18 +14,18 @@ interface BasketListProps {
 export const BasketList: FC<BasketListProps> = ({ initialProducts = [] }) => {
   const [products, setProducts] = useState(initialProducts);
   const dispatch = useDispatch();
-  const removeFromBasket = (productId: string) => {
-    dispatch(basketActions.remove({ productId }));
-    setProducts(products.filter((p) => p.id !== productId));
+  const remove = (idx: number) => {
+    dispatch(basketActions.remove({ idx }));
+    setProducts(products.filter((p, i) => i !== idx));
   };
 
   return (
     <div className="storybook-product-list">
       <List>
-        {products.map((product) => (
-          <ListItem key={product.id}>
+        {products.map((product, idx) => (
+          <ListItem key={idx}>
             {product.name}
-            <Button label="Удалить" onClick={() => removeFromBasket(product.id)} />
+            <Button label="Удалить" onClick={() => remove(idx)} />
           </ListItem>
         ))}
       </List>

@@ -9,9 +9,8 @@ export const basketSlice = createSlice({
     add: (state, action: PayloadAction<ProductItem>) => {
       state.push(action.payload);
     },
-    remove: (state, action: PayloadAction<{ productId: string }>) => {
-      const index = state.findIndex((p) => p.id === action.payload.productId);
-      state.splice(index, 1);
+    remove: (state, action: PayloadAction<{ idx: number }>) => {
+      state.splice(action.payload.idx, 1);
     },
   },
 });
