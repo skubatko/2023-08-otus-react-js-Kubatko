@@ -2,6 +2,7 @@ import cn from 'clsx';
 import React, { memo, useMemo } from 'react';
 import { NavLink, NavLinkProps } from 'react-router-dom';
 import { Frame } from 'src/components/Frame';
+import { Login } from 'src/components/Login';
 import { Logo } from 'src/components/Logo';
 import { ResponseNavigation, ResponseNavigationProps } from 'src/components/ResponseNavigation';
 import { ThemeSwitcher } from 'src/components/ThemeSwitcher';
@@ -76,6 +77,11 @@ export const Header = memo<HeaderOriginProps>(({ className }) => {
           key: 'theme-switcher',
           horizontalElem: <ThemeSwitcher className={s.switcher} />,
           verticalElem: <ThemeSwitcher className={s.switcher} />,
+        },
+        {
+          key: 'login',
+          horizontalElem: <Login className={s.switcher} />,
+          verticalElem: <Login className={s.switcher} />,
         },
       ],
     }),

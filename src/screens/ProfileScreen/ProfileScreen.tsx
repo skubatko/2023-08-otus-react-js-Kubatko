@@ -1,14 +1,11 @@
 import React, { FC } from 'react';
-import { ProfileForm } from 'src/components/Forms/ProfileForm/ProfileForm';
-import { Frame } from 'src/components/Frame';
-import { Page } from 'src/components/Page';
+import { Page } from '../../components/Page';
 import s from './ProfileScreen.sass';
+import { SettingsBlock } from './SettingsBlock';
 
 export const ProfileScreen: FC = () => (
-  <Page title="Профиль" className={s.root}>
-    <Frame>
-      <ProfileForm />
-    </Frame>
+  <Page title="Профиль">
+    <SettingsBlock className={s.block} />
   </Page>
 );
 
